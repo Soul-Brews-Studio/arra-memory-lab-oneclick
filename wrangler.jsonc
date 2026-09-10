@@ -1,0 +1,31 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "arra-memory-lab-oneclick",
+  "compatibility_date": "2026-08-23",
+  "compatibility_flags": ["nodejs_compat"],
+  "main": "src/server.ts",
+  "assets": {
+    "not_found_handling": "single-page-application",
+    "run_worker_first": ["/api/*", "/mcp", "/authorize", "/oauth/*", "/.well-known/*"]
+  },
+  "ai": {
+    "binding": "AI"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "arra-memory-lab-oneclick",
+      "database_id": "604836b0-b52d-4ace-b469-a74acc1c7cb4",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "kv_namespaces": [
+    {
+      "binding": "OAUTH_KV",
+      "id": "acf4bd3aef0141de9ebbdab3169ce044"
+    }
+  ],
+  "vars": {
+    "SEMANTIC_MAX_DISTANCE": "0.7"
+  }
+}
